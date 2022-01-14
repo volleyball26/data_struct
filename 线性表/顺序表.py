@@ -33,6 +33,59 @@ class SequenceList:
         else:
             self.data[index] = value
 
+    def append(self, value):
+        """[表尾插入数据]
+
+        Args:
+            value ([type]): [description]
+        """
+        if self.index == self.max:
+            return
+        else:
+            self.data[self.index] = value
+            self.index += 1
+
+
+    def insert(self, index, value):
+        """[在任意位置插入元素]
+
+        Args:
+            index ([int]): [下标]
+            value ([int]): [元素]]
+        """
+        if index < 0 or index > self.index:
+            raise IndexError("Index 不合法")
+        if index == self.index:
+            self.append(value)
+        else:
+            for i in range(self.index, index, -1):
+                print(i)
+                self.data[i] = self.data[i-1]
+            self.data[index] = value
+            self.index += 1
+
+    def delete(self, index, value):
+        """[删除任意位置的元素]
+
+        Args:
+            index ([int]): [下标]
+            value ([int]): [元素]
+        """
+        if index < 0 and index > self.index:
+            raise IndexError("Index 不合法")
+        if index == self.index:
+            self.pop()
+        # for 
+
+    def pop(self):
+        """[删除表尾的元素]
+        """
+        if self.empty() == True:
+            return
+        del self.data[-1] 
+        self.index -= 1
+
+
     def empty(self):
         """[判断顺序表是否为空]
 
@@ -54,5 +107,17 @@ class SequenceList:
             self.index += 1
 
 if __name__ == '__main__':
-    seq_list = SequenceList(3)
-    print(seq_list.empty())
+    seq_list = SequenceList(4)
+    print(seq_list.data, seq_list.index, seq_list.max)
+    # seq_list.insert(0, 1)
+    # print(seq_list.data, seq_list.index, seq_list.max)
+    # seq_list.insert(0, 2)
+    # print(seq_list.data, seq_list.index, seq_list.max)
+    seq_list.insert(0, 3)
+    print(seq_list.data, seq_list.index, seq_list.max)
+    seq_list.insert(0, 4)
+    print(seq_list.data, seq_list.index, seq_list.max)
+    seq_list.pop()
+    print(seq_list.data)
+    seq_list.pop()
+    print(seq_list.data)
