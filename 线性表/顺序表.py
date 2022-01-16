@@ -75,7 +75,10 @@ class SequenceList:
             raise IndexError("Index 不合法")
         if index == self.index:
             self.pop()
-        # for 
+        for i in range(index, self.index):
+            self.data[i] = self.data[i+1]
+        self.index -= 1
+        
 
     def pop(self):
         """[删除表尾的元素]
@@ -106,18 +109,24 @@ class SequenceList:
             self.data[self.index] = value
             self.index += 1
 
+    def length(self):
+        """[返回顺序表长度]
+        """
+        return self.index
+
+    def traversal(self):
+        """[遍历顺序表]
+        """
+        if self.length == 0:
+            return
+        for i in self.data:
+            print(i)
+
 if __name__ == '__main__':
     seq_list = SequenceList(4)
-    print(seq_list.data, seq_list.index, seq_list.max)
-    # seq_list.insert(0, 1)
-    # print(seq_list.data, seq_list.index, seq_list.max)
-    # seq_list.insert(0, 2)
-    # print(seq_list.data, seq_list.index, seq_list.max)
+    seq_list.insert(0, 1)
+    seq_list.insert(0, 2)
     seq_list.insert(0, 3)
-    print(seq_list.data, seq_list.index, seq_list.max)
     seq_list.insert(0, 4)
-    print(seq_list.data, seq_list.index, seq_list.max)
-    seq_list.pop()
-    print(seq_list.data)
-    seq_list.pop()
-    print(seq_list.data)
+
+    seq_list.traversal()
