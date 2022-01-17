@@ -122,6 +122,44 @@ class SingleLinkedList():
             pre.next = None
             self.tail = None
 
+    def delete(self, index):
+        """[summary]
+
+        Args:
+            index ([type]): [description]
+        """
+        if self.emtpy():
+            raise IndexError("链表为空")
+        if index < 0 or index > self.length():
+            raise IndexError("非法下标")
+        if index == 0:
+            self.del_first()
+        elif index == self.length() - 1:
+            self.del_last()
+        else:
+            pass
+
+    def find(self, value):
+        """[
+            查找节点
+            从表头顺序查找，如果找到则返回True, 否则返回False
+            ]
+
+        Args:
+            value ([type]): [description]
+
+        Returns:
+            [type]: [description]
+        """
+        cur = self.head
+        while cur != None:
+            if value == cur.value:
+                return True
+            cur = cur.next
+        return False
+
+
+
 
 if __name__ == '__main__':
     sll = SingleLinkedList()
