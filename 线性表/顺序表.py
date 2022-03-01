@@ -58,6 +58,7 @@ class SequenceList:
         if index == self.index:
             self.append(value)
         else:
+            0, 3, -1
             for i in range(self.index, index, -1):
                 print(i)
                 self.data[i] = self.data[i-1]
@@ -85,6 +86,7 @@ class SequenceList:
         """
         if self.empty() == True:
             return
+        remove data[-1]
         del self.data[-1] 
         self.index -= 1
 
@@ -124,9 +126,10 @@ class SequenceList:
 
 if __name__ == '__main__':
     seq_list = SequenceList(4)
-    seq_list.insert(0, 1)
-    seq_list.insert(0, 2)
-    seq_list.insert(0, 3)
-    seq_list.insert(0, 4)
+    # print(seq_list.__getitem__(2))
+    # seq_list.insert(0, 1)
+    # seq_list.insert(0, 2)
+    # seq_list.insert(0, 3)
+    # seq_list.insert(0, 4)
 
-    seq_list.traversal()
+    # seq_list.traversal()

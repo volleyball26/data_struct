@@ -3,6 +3,10 @@ class Node():
         self.val = val
         self.next = None
 
+->[Node]->[]->[]->[]->[]->[]->[]->[]
+
+value 
+next  
 class SingleLinkedList():
 
     def __init__(self):
